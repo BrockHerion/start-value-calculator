@@ -9,7 +9,7 @@
 		MIN_SKILLS,
 		SHORT_ROUTINE_DEDUCTION,
 		type ElementGroup
-	} from '$lib/constants';
+	} from '$lib';
 
 	let skills = $state<Array<{ name: string; element: ElementGroup; difficulty: number }>>([]);
 
@@ -60,38 +60,46 @@
 	<div>
 		<h3 class="text-lg font-medium sm:tracking-tight">Skills</h3>
 
-		<div class="mt-3 flex flex-col space-y-3">
-			{#each skills as skill, i}
-				<div class="flex items-center gap-2">
-					<input
-						type="text"
-						class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
-						bind:value={skill.name}
-					/>
-					<select
-						class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
-						bind:value={skill.element}
-					>
-						{#each ELEMENT_GROUPS as elementGroup}
-							<option value={elementGroup}>{elementGroup}</option>
-						{/each}
-					</select>
-					<select
-						class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
-						bind:value={skill.difficulty}
-					>
-						{#each DIFFICULTY_VALUES as difficulty}
-							<option value={difficulty.value}>{difficulty.label}</option>
-						{/each}
-					</select>
-					<button
-						class="ml-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-gray-300 ring-inset hover:bg-gray-50"
-						onclick={() => skills.splice(i, 1)}
-					>
-						Remove
-					</button>
-				</div>
-			{/each}
+		<div class="mt-3">
+			{#if skills.length === 0}
+				<p class="text-center text-sm text-gray-500">
+					You haven't added any skills yet. Click the "Add skill" button to get started.
+				</p>
+			{/if}
+
+			<div class="flex flex-col space-y-3">
+				{#each skills as skill, i}
+					<div class="flex items-center gap-2">
+						<input
+							type="text"
+							class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+							bind:value={skill.name}
+						/>
+						<select
+							class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+							bind:value={skill.element}
+						>
+							{#each ELEMENT_GROUPS as elementGroup}
+								<option value={elementGroup}>{elementGroup}</option>
+							{/each}
+						</select>
+						<select
+							class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+							bind:value={skill.difficulty}
+						>
+							{#each DIFFICULTY_VALUES as difficulty}
+								<option value={difficulty.value}>{difficulty.label}</option>
+							{/each}
+						</select>
+						<button
+							class="ml-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-gray-300 ring-inset hover:bg-gray-50"
+							onclick={() => skills.splice(i, 1)}
+						>
+							Remove
+						</button>
+					</div>
+				{/each}
+			</div>
 		</div>
 
 		<div class="mt-4 flex items-center justify-end">
@@ -108,6 +116,8 @@
 	</div>
 
 	<div class="mt-4 border-t pt-4">
+		<h3 class="text-lg font-medium sm:tracking-tight">Totals</h3>
+
 		<p>Base start: {DEFAULT_START}</p>
 		<p>Element group total: {scoreBreakdown.e}</p>
 		<p>Difficulty total: {scoreBreakdown.d}</p>
@@ -119,8 +129,8 @@
 		<h3 class="text-lg font-medium sm:tracking-tight">Help</h3>
 
 		<p>
-			This is a tool to calculate routine start values. It is based off the rules and scoring system
-			for Illinois High School Association (IHSA) boys gymnastics.
+			This is a tool to calculate gymnastics routine start values. It is based off the rules and
+			scoring system for Illinois High School Association (IHSA) boys gymnastics.
 		</p>
 
 		<div class="mt-4">

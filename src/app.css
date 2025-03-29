@@ -3,5 +3,5 @@
 @plugin '@tailwindcss/typography';
 
 @plugin "@iconify/tailwind4" {
-	prefixes: mdi-light, vscode-icons;
+	prefixes: mdi-light, vscode-icons, simple-icons;
 }
