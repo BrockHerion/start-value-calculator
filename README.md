@@ -1,38 +1,19 @@
-# sv
+# Start Value Calculator
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a tool to calculate gymnastics routine start values for boys gymnastics.  It is based off the rules and scoring system for Illinois High School Association (IHSA) boys gymnastics.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Calculates routine start values based on skills and difficulty.
+- Follows the rules and scoring system for Illinois High School Association (IHSA) boys gymnastics.
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Future additions
 
-# create a new project in my-app
-npx sv create my-app
-```
+- [ ] Being able to download and save routes.
+- [ ] Accounting for event bonuses.
+- [ ] Skill difficulty lookup.
+- [ ] Customizable rules and overrides.
 
-## Developing
+## Help
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+For help and feedback, please reach out at [brockheriondev@gmail.com](mailto:brockheriondev@gmail.com).
