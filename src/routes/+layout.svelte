@@ -26,32 +26,6 @@
 						Start Value Calculator
 					</h2>
 				</div>
-				<div class="mt-4 flex md:mt-0 md:ml-4">
-					<a
-						href="https://github.com/BrockHerion/start-value-calculator"
-						class="ml-inline-flex size-10 items-center p-2 text-black"
-						aria-label="github"
-						target="_blank"
-						rel="noopener noreferrer"
-						><span class="iconify simple-icons--github size-6"></span>
-					</a>
-					<a
-						href="https://bsky.app/profile/brockherion.bsky.social"
-						class="ml-inline-flex size-10 items-center p-2 text-black"
-						aria-label="github"
-						target="_blank"
-						rel="noopener noreferrer"
-						><span class="iconify simple-icons--bluesky size-6"></span>
-					</a>
-					<a
-						href="https://buymeacoffee.com/brockherion"
-						class="ml-inline-flex size-10 items-center p-2 text-black"
-						aria-label="github"
-						target="_blank"
-						rel="noopener noreferrer"
-						><span class="iconify simple-icons--buymeacoffee size-6"></span>
-					</a>
-				</div>
 			</div>
 			<div class="mt-8 flex flex-col">
 				{@render children()}
@@ -63,6 +37,32 @@
 					>Brock Herion</a
 				></small
 			>
+			<div class="mt-4 flex items-center justify-center space-x-4">
+				<a
+					href="https://github.com/BrockHerion/start-value-calculator"
+					class="ml-inline-flex size-6 items-center text-gray-50"
+					aria-label="github"
+					target="_blank"
+					rel="noopener noreferrer"
+					><span class="iconify simple-icons--github h-full w-full"></span>
+				</a>
+				<a
+					href="https://bsky.app/profile/brockherion.bsky.social"
+					class="ml-inline-flex size-6 items-center text-gray-50"
+					aria-label="github"
+					target="_blank"
+					rel="noopener noreferrer"
+					><span class="iconify simple-icons--bluesky h-full w-full"></span>
+				</a>
+				<a
+					href="https://buymeacoffee.com/brockherion"
+					class="ml-inline-flex size-6 items-center text-gray-500"
+					aria-label="github"
+					target="_blank"
+					rel="noopener noreferrer"
+					><span class="iconify simple-icons--buymeacoffee h-full w-full"></span>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
