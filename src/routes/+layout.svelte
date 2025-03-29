@@ -40,7 +40,7 @@
 			<div class="mt-4 flex items-center justify-center space-x-4">
 				<a
 					href="https://github.com/BrockHerion/start-value-calculator"
-					class="ml-inline-flex size-6 items-center text-gray-50"
+					class="ml-inline-flex size-6 items-center text-gray-500"
 					aria-label="github"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -48,7 +48,7 @@
 				</a>
 				<a
 					href="https://bsky.app/profile/brockherion.bsky.social"
-					class="ml-inline-flex size-6 items-center text-gray-50"
+					class="ml-inline-flex size-6 items-center text-gray-500"
 					aria-label="github"
 					target="_blank"
 					rel="noopener noreferrer"
