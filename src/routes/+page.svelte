@@ -61,32 +61,32 @@
 		<h3 class="text-lg font-medium sm:tracking-tight">Skills</h3>
 
 		<div class="mt-3">
-			{#if skills.length === 0}
-				<p class="text-center text-sm text-gray-500">
-					You haven't added any skills yet. Click the "Add skill" button to get started.
-				</p>
-			{/if}
-
 			<div class="flex flex-col space-y-3">
 				{#each skills as skill, i}
 					<div class="flex items-center gap-2">
 						<input
+							id="skill-{i}"
 							type="text"
 							class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
 							bind:value={skill.name}
+							placeholder="Skill"
 						/>
 						<select
+							id="element-group-{i}"
 							class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
 							bind:value={skill.element}
 						>
+							<option value="" disabled>Element group</option>
 							{#each ELEMENT_GROUPS as elementGroup}
 								<option value={elementGroup}>{elementGroup}</option>
 							{/each}
 						</select>
 						<select
+							id="difficulty-{i}"
 							class="flex-1 rounded-md border-gray-300 px-3 py-2 text-sm shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
 							bind:value={skill.difficulty}
 						>
+							<option value={0} disabled>Difficulty</option>
 							{#each DIFFICULTY_VALUES as difficulty}
 								<option value={difficulty.value}>{difficulty.label}</option>
 							{/each}
@@ -98,6 +98,10 @@
 							X
 						</button>
 					</div>
+				{:else}
+					<p class="text-center text-sm text-gray-500">
+						You haven't added any skills yet. Click the "Add skill" button to get started.
+					</p>
 				{/each}
 			</div>
 		</div>
@@ -108,7 +112,7 @@
 				onclick={() => (skills = [])}>Reset</button
 			>
 			<button
-				class="ml-3 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-500"
+				class="ml-3 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-indigo-600 disabled:bg-indigo-500"
 				disabled={skills.length >= MAX_SKILLS}
 				onclick={() => skills.push({ name: '', element: '', difficulty: 0 })}>Add skill</button
 			>
