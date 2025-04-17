@@ -5,7 +5,7 @@ export const SHORT_ROUTINE_DEDUCTION = 1.0;
 export const MIN_SKILLS = 6;
 export const MAX_SKILLS = 10;
 
-export const ELEMENT_GROUPS = ['I', 'II', 'III', 'IIII'];
+export const ELEMENT_GROUPS = ['No EG', 'I', 'II', 'III', 'IIII'];
 export type ElementGroup = (typeof ELEMENT_GROUPS)[number];
 
 export const ELEMENT_GROUP_VALUE = 0.5;

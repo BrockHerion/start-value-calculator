@@ -24,7 +24,7 @@
 		let difficulty = 0;
 
 		for (const skill of validSkills) {
-			if (metElements.has(skill.element)) {
+			if (metElements.has(skill.element) || skill.element === 'No EG') {
 				startValue += skill.difficulty;
 			} else {
 				metElements.add(skill.element);
@@ -141,7 +141,7 @@
 			<p>Rule assumptions:</p>
 			<ul class="list-inside list-disc">
 				<li>Base routine start value is {DEFAULT_START}.</li>
-				<li>Each event (minus vault) has {ELEMENT_GROUPS.length} element groups.</li>
+				<li>Each event (minus vault) has 4 element groups.</li>
 				<li>Each element group is worth {ELEMENT_GROUP_VALUE}.</li>
 				<li>The minimum number of skills required is {MIN_SKILLS}.</li>
 				<li>The maximum number of skills is {MAX_SKILLS}.</li>
