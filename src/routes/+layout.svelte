@@ -1,11 +1,14 @@
 <script lang="ts">
 	import '../app.css';
 	import { dev } from '$app/environment';
-	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { env } from '$env/dynamic/public';
 
 	let { children } = $props();
 
-	injectAnalytics({ mode: dev ? 'development' : 'production' });
+	// Plausible is loaded only in production and only when the site's domain is configured,
+	// so local dev and preview deploys without the env var send nothing.
+	const plausibleDomain = env.PUBLIC_PLAUSIBLE_DOMAIN;
+	const plausibleSrc = env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https://plausible.io/js/script.js';
 </script>
 
 <svelte:head>
@@ -15,6 +18,9 @@
 		content="This is a tool to calculate gymnastics routine start values for boys gymnastics."
 	/>
 	<meta name="author" content="Brock Herion" />
+	{#if !dev && plausibleDomain}
+		<script defer data-domain={plausibleDomain} src={plausibleSrc}></script>
+	{/if}
 </svelte:head>
 
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
